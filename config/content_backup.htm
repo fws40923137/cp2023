@@ -285,27 +285,87 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <h1>ANSIC</h1>
-<p>1.<span>顯示前10個自然數</span></p>
-<p>#include &lt;stdio.h&gt; // Include the standard input/output header file.<br/>int main() {<br/> int i;</p>
-<p>// Print a message indicating the intention of the program<br/> printf("The first 10 natural numbers are:\n");</p>
-<p>// Loop through the first 10 natural numbers and print each one<br/> for (i = 1; i &lt;= 10; i++) {<br/> printf("%d ", i);<br/> }</p>
-<p>// Return 0 to indicate successful execution<br/> return 0;<br/>}</p>
-<table height="254" width="565">
-<tbody>
-<tr>
-<td style="width: 556.6px;">
+<p>1. 顯示前十個自然數</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // Include the standard input/output header file.
+int main() {
+int i;
+
+// Print a message indicating the intention of the program
+printf("The first 10 natural numbers are:\n");
+
+// Loop through the first 10 natural numbers and print each one
+for (i = 1; i &lt;= 10; i++) {
+printf("%d ", i);
+}
+
+// Return 0 to indicate successful execution
+return 0;
+}</pre>
+<p><br/>2. <span>計算前 10 個自然數的和</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main()
+{
+int j, sum = 0;
+
+printf("The first 10 natural number is :\n");
+
+for (j = 1; j &lt;= 10; j++)
+{
+sum = sum + j;
+printf("%d ",j);
+}
+printf("\nThe Sum is : %d\n", sum);
+}</pre>
+<p>3. <span>顯示整數的立方</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // Include the standard input/output header file.
+int main() {
+int i, ctr; // Declare variables 'i' for loop counter and 'ctr' for user input.
+
+printf("Input number of terms : "); // Print a message to prompt user input.
+scanf("%d", &amp;ctr); // Read the value of 'ctr' from the user.
+
+for (i = 1; i &lt;= ctr; i++) { // Start a for loop to iterate 'ctr' times.
+printf("Number is : %d and cube of the %d is :%d \n", i, i, (i * i * i)); // Print the number, its cube, and message.
+}
+return 0;
+}</pre>
+<p>4. <span>讀取任意月份的整數並顯示該月的天數</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+void main()
+{
+int monno;
+char monnm[15];
+printf("Input Month No : ");
+scanf("%d",&amp;monno);
+switch(monno)
+{
+case 1:
+case 3:
+case 5:
+case 7:
+case 8:
+case 10:
+case 12:
+printf("Month have 31 days. \n");
+break;
+case 2:
+printf("The 2nd month is a February and have 28 days. \n");
+printf("in leap year The February month Have 29 days.\n");
+break;
+case 4:
+case 6:
+case 9:
+case 11:
+printf("Month have 30 days. \n");
+break;
+default:
+printf("invalid Month number.\nPlease try again ....\n");
+break;
+}
+}</pre>
+<p><br/><br/></p>
 <p></p>
-<p>#include &lt;stdio.h&gt; // Include the standard input/output header file.<br/>int main() {<br/>int i;</p>
-<p>// Print a message indicating the intention of the program<br/>printf("The first 10 natural numbers are:\n");</p>
-<p>// Loop through the first 10 natural numbers and print each one<br/>for (i = 1; i &lt;= 10; i++) {<br/>printf("%d ", i);<br/>}</p>
-<p>// Return 0 to indicate successful execution<br/>return 0;<br/>}</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div>
-<div class="syntaxhighlighter cpp" id="highlighter_564769"></div>
-</div>
+<p><br/><br/></p>
 <p></p>
 <p></p>
 <p></p><h1>w5</h1>
