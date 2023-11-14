@@ -378,8 +378,37 @@ printf("Number1 and Number2 are not equal\n");
 }
 
 </pre>
+<p>6. <span>檢查給定的數字是偶數還是奇數</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+void main()
+{
+int num1, rem1;
+
+printf("Input an integer : ");
+scanf("%d", &amp;num1);
+rem1 = num1 % 2;
+if (rem1 == 0)
+printf("%d is an even integer\n", num1);
+else
+printf("%d is an odd integer\n", num1);
+}
+
+</pre>
+<p>7. <span>檢查給定的數字是正數還是負數</span><br/><br/></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+void main()
+{
+int num;
+
+printf("Input a number :");
+scanf("%d", &amp;num);
+if (num &gt;= 0)
+printf("%d is a positive number \n", num);
+else
+printf("%d is a negative number \n", num);
+}</pre>
 <p><br/><br/></p>
-<p><br/><br/></p>
+<p></p>
 <p></p>
 <p></p>
 <p></p><h1>w5</h1>
