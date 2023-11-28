@@ -407,21 +407,25 @@ printf("%d 是一個偶數\n", num1); // 如果 'rem1' 等於0，則 'num1' 是�
 printf("%d 是一個奇數\n", num1); // 如果 'rem1' 不等於0，則 'num1' 是奇數，打印相應的消息。
 }
 }</pre>
-<p><br/><br/></p>
-<p>7- <span>檢查給定的數字是正數還是負數</span><br/><br/></p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-void main()
-{
-int num;
+<p>7- <span>檢查給定的數字是正數還是負數</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
-printf("Input a number :");
-scanf("%d", &amp;num);
-if (num &gt;= 0)
-printf("%d is a positive number \n", num);
-else
-printf("%d is a negative number \n", num);
-}</pre>
+void main() {
+int num; // 宣告一個整數變量 'num'。
+
+printf("輸入一個數字 :"); // 打印消息以提示用戶輸入一個數字。
+scanf("%d", &amp;num); // 從用戶讀取數字的值。
+
+if (num &gt;= 0) {
+printf("%d 是一個正數 \n", num); // 如果 'num' 大於或等於0，則 'num' 是正數，打印相應的消息。
+} else {
+printf("%d 是一個負數 \n", num); // 如果 'num' 小於0，則 'num' 是負數，打印相應的消息。
+}
+}
+
+</pre>
 <p><br/><br/></p>
+<p></p>
 <p></p>
 <p></p>
 <p></p>
