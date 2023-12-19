@@ -259,8 +259,14 @@ gdImageLine(img, x1, y1, x2, y2, color);
 <div><img alt="" height="210" src="./../images/roc_flag.png" width="315"/></div>
 <div><img alt="" height="521" src="./../images/螢幕擷取畫面 2023-12-19 154806.png" width="132"/></div>
 <div>加入程式碼:</div>
-<div>// 連接四個座標點<br/> connectPoints(img, 429, 125, 279, 165, white);<br/> connectPoints(img, 279, 165, 170, 274, white);<br/> connectPoints(img, 170, 274, 319, 234, white);<br/> connectPoints(img, 319, 234, 429, 125, white);</div>
-<div></div>
+<div>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 連接四個座標點
+connectPoints(img, 429, 125, 279, 165, white);
+connectPoints(img, 279, 165, 170, 274, white);
+connectPoints(img, 170, 274, 319, 234, white);
+connectPoints(img, 319, 234, 429, 125, white);</pre>
+<p>以下是完整程式碼:</p>
+</div>
 <div>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
@@ -375,7 +381,8 @@ void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color) {
 gdImageLine(img, x1, y1, x2, y2, color);
 }</pre>
 </div>
-<div></div>
+<div>輸出結果</div>
+<div><img alt="" height="316" src="./../images/roc_flag_in_gd-1219.png" width="474"/></div>
 <div></div>
 <div>2) 承上題, 請列出第二組 ABED 的四條直線與白日中的大圓所相交 (intersect) 的四個點座標.</div>
 <div>---------------------------------------------------------------------------------------------------</div>
