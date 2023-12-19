@@ -285,7 +285,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <div style="width: 100%; height: 100%;"></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
-<h1>w2~w5</h1>
+<h1>w4-w5</h1>
 <div>
 <div class="syntaxhighlighter cpp" id="highlighter_564769"></div>
 </div>
@@ -782,6 +782,48 @@ gdImageFilledRectangle(img, stripe_width, 0, 2 * stripe_width, height, white);
 gdImageFilledRectangle(img, 2 * stripe_width, 0, width, height, red);
 }</pre>
 <p><img alt="" height="286" src="/images/france_flag.png" width="429"/><br/><br/></p>
+<h1>w12</h1>
+<p>可攜系統中 home_ipv6 目錄中的 .gitconfig</p>
+<div>
+<div class="syntaxhighlighter js" id="highlighter_159010">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="js plain">[http]</code></div>
+<div class="line number2 index1 alt1"><code class="js spaces">    </code><code class="js plain">proxy = http:</code><code class="js comments">//p4.cycu.org:3128</code></div>
+<div class="line number3 index2 alt2"><code class="js plain">[user]</code></div>
+<div class="line number4 index3 alt1"><code class="js spaces">    </code><code class="js plain">name = 你的 github 帳號</code></div>
+<div class="line number5 index4 alt2"><code class="js spaces">    </code><code class="js plain">email = 登記在 github 帳號的 email</code></div>
+<div class="line number6 index5 alt1"><code class="js plain">[safe]</code></div>
+<div class="line number7 index6 alt2"><code class="js spaces">    </code><code class="js plain">directory = *</code></div>
+<div class="line number8 index7 alt1"><code class="js plain">[http </code><code class="js string">"https://github.com"</code><code class="js plain">]</code></div>
+<div class="line number9 index8 alt2"><code class="js plain">sslVerify = </code><code class="js keyword">false</code></div>
+<div class="line number10 index9 alt1"><code class="js plain">[pull]</code></div>
+<div class="line number11 index10 alt2"><code class="js spaces">    </code><code class="js plain">rebase = </code><code class="js keyword">false</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>.gitconfig 設定說明:</p>
+<p>[http]<br/>    proxy =<span> </span><a href="http://p4.cycu.org:3128/">http://p4.cycu.org:3128</a></p>
+<p>也可以透過命令列中輸入 git config --global http.proxy<span> </span><a href="http://p4.cycu.org:3128/">http://p4.cycu.org:3128</a> 取得</p>
+<p>這是設定 git 指令需要使用 http 或 https 協定擷取 cmsimde 時, 假如網路只支援 IPv6, 就必須透過代理主機連線到目前只支援 IPv4 的 github.com</p>
+<p>[user]<br/>    name = 你的 github 帳號<br/>    email = 登記在 github 帳號的 email</p>
+<p>是在 git commit -m "提交訊息" 時綁定身分用</p>
+<p>[safe]<br/>    directory = *</p>
+<p>則是宣告目前所使用的檔案目錄都是 safe</p>
+<p>[http "https://github.com"]<br/>    sslVerify = false</p>
+<p>表示當連線到 github.com 時所使用的 key 不用登記在 Windows 操作系統中</p>
+<p>[pull]<br/>    rebase = false</p>
+<p>表示 git pull 時, 並不使用 rebase, 而是直接 fetch 遠端資料, 並且進行 merge 合併</p>
 <h1>w13</h1>
 <p>打開puttygen.exe ，打開之後點擊Generate創建 ssh key</p>
 <p>在空白區域移動滑鼠創建ssh key </p>
@@ -801,8 +843,21 @@ gdImageFilledRectangle(img, 2 * stripe_width, 0, width, height, red);
 <p>然後對SimonTatham點右鍵匯出 存到 tmp ，再去 tmp 資料夾檢查有沒有學號_session.reg檔案</p>
 <p></p>
 <p>後面忘了 </p>
-<p></p>
-<h1>課程心得</h1>
+<h1>w15</h1>
+<p>練習題</p>
+<div>
+<div>1) 根據 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVcefUI2zPpAmP6lnLWLEAoBCBznMnvFpsNE-1VVFGvVZQ?e=goiPpP&amp;isSPOFile=1" rel="noreferrer noopener" tabindex="-1" target="_blank" title="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/evcefui2zppamp6lnlwleaobcbznmnvfpsne-1vvfgvvzq?e=goippp">roc_list_coord_flag.7z</a> 程式內容所印出的六組 ABED 等繪製 ROC 國旗白日圖案中的菱形四個關鍵點, 請直接在青天與滿地紅的圖案中, 利用白色作為畫線顏色, 將第二組的 ABED 等四個點的座標, 以直線相連.</div>
+<div>-----------------------------------------------------------------------------------------------------------</div>
+<div>先將 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVcefUI2zPpAmP6lnLWLEAoBCBznMnvFpsNE-1VVFGvVZQ?e=goiPpP&amp;isSPOFile=1" rel="noreferrer noopener" tabindex="-1" target="_blank" title="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/evcefui2zppamp6lnlwleaobcbznmnvfpsne-1vvfgvvzq?e=goippp">roc_list_coord_flag.7z</a> 下載下來，用SciTE打開roc_list_coord_flag.c，執行一次可得到一個台灣國旗以及六組座標。</div>
+<div></div>
+<div><img alt="" height="210" src="/images/roc_flag.png" width="315"/></div>
+<div><img alt="" height="521" src="/images/螢幕擷取畫面 2023-12-19 154806.png" width="132"/></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div>2) 承上題, 請列出第二組 ABED 的四條直線與白日中的大圓所相交 (intersect) 的四個點座標.</div>
+</div><h1>課程心得</h1>
 <p></p>
 <p></p>
 <p>
