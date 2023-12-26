@@ -1029,10 +1029,10 @@ gdImageFilledRectangle(img, 0, 0, width, height, red);
 // 青天面積為整面國旗的 1/4, 也是採用長方形塗色
 gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
 // 先設法以填色畫出六個白色堆疊菱形
-draw_white_sun(img, center_x, center_y, sun_radius, white);
+#draw_white_sun(img, center_x, center_y, sun_radius, white);
 // 利用一個藍色大圓與白色小圓畫出藍色環狀
-gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
-gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
+#gdImageFilledEllipse(img, center_x, center_y, blue_circle_dia, blue_circle_dia, blue);
+#gdImageFilledEllipse(img, center_x, center_y, white_circle_dia, white_circle_dia, white);
 
 // 設置線條的粗度
 gdImageSetThickness(img, 3);
@@ -1087,14 +1087,18 @@ gdImageLine(img, dx1, dy1, ax1, ay1, color);
 
 void connectPoints(gdImagePtr img, int x1, int y1, int x2, int y2, int color) {
 gdImageLine(img, x1, y1, x2, y2, color);
-}</pre>
+}
+
+</pre>
 <p><br/><br/></p>
+<p></p>
 </div>
-<div>輸出結果:</div>
-<div><img alt="" height="494" src="/images/roc_flag_in_gd.png" width="741"/></div>
+<div>\輸出結果:</div>
+<div><img alt="" height="533" src="/images/roc_flag_in_gd.png" width="800"/></div>
+<div></div>
 <div></div>
 <div>2) 承上題, 請列出第二組 ABED 的四條直線與白日中的大圓所相交 (intersect) 的四個點座標.</div>
-<div>---------------------------------------------------------------------------------------------------</div>
+<div>------------------------------------------------------------------------------------------------</div>
 </div><h1>課程心得</h1>
 <p></p>
 <p></p>
