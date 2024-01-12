@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Brython.html'>Brython</a><li class='has-children'><a href='w4-w5.html'>w4-w5</a><ul class='dropdown'><li><a href='牛頓第二運動定律.html'>牛頓第二運動定律</a><li><a href='mass-spring-damper 系統.html'>mass-spring-damper 系統</a><li><a href='Eulers Method 數值分析.html'>Eulers Method 數值分析</a></li></ul><li class='has-children'><a href='w6-w7.html'>w6-w7</a><ul class='dropdown'><li><a href='程式練習-1 程式碼練習.html'>程式練習-1 程式碼練習</a><li><a href='程式練習-2 繪製國旗.html'>程式練習-2 繪製國旗</a></li></ul><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a><li><a href='課程心得.html'>課程心得</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Brython.html'>Brython</a><li class='has-children'><a href='w4-w5.html'>w4-w5</a><ul class='dropdown'><li><a href='牛頓第二運動定律.html'>牛頓第二運動定律</a><li><a href='mass-spring-damper 系統.html'>mass-spring-damper 系統</a><li><a href='Eulers Method 數值分析.html'>Eulers Method 數值分析</a></li></ul><li class='has-children'><a href='w6-w8.html'>w6-w8</a><ul class='dropdown'><li><a href='程式練習-1 程式碼練習.html'>程式練習-1 程式碼練習</a><li><a href='程式練習-2 繪製國旗.html'>程式練習-2 繪製國旗</a></li></ul><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a><li><a href='課程心得.html'>課程心得</a></li>
                       </ul>
                 </nav>
               </div>
@@ -648,7 +648,107 @@ void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotatio
 }
 </pre>
 </div>
-<p></p><br />程式練習-1 程式碼練習 << <a href='程式練習-1 程式碼練習.html'>Previous</a> <a href='w11.html'>Next</a> >> w11</div>
+<p>6.繪製美國國旗</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+// 函式原型
+void draw_usa_flag(gdImagePtr img);
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle);
+
+int main() {
+// 設定圖像寬度和高度
+int width = 800;
+int height = (int)(width / 1.9);
+
+// 創建圖像
+gdImagePtr img = gdImageCreateTrueColor(width, height);
+gdImageAlphaBlending(img, 0);
+
+// 繪製美國國旗
+draw_usa_flag(img);
+
+// 將圖像保存到文件
+FILE *outputFile = fopen("./../images/usa_flag.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "打開輸出文件時出錯。\n");
+return 1;
+}
+
+gdImagePngEx(img, outputFile, 9);
+fclose(outputFile);
+gdImageDestroy(img);
+
+return 0;
+}
+
+// 繪製美國國旗的具體實現
+void draw_usa_flag(gdImagePtr img) {
+int width = gdImageSX(img);
+int height = gdImageSY(img);
+int red, white, blue;
+// 國旗顏色
+red = gdImageColorAllocate(img, 178, 34, 52); // 紅色條紋
+white = gdImageColorAllocate(img, 255, 255, 255); // 白色條紋
+blue = gdImageColorAllocate(img, 60, 59, 110); // 藍色矩形
+
+int stripe_height = 33;
+int stripe_width = width;
+int star_size = (int)(0.0308 * height); // 星星大小
+
+// 繪製條紋
+for (int y = 0; y &lt; height; y += stripe_height) {
+if (y / stripe_height % 2 == 0) {
+gdImageFilledRectangle(img, 0, y, stripe_width, y + stripe_height, red);
+} else {
+gdImageFilledRectangle(img, 0, y, stripe_width, y + stripe_height, white);
+}
+}
+
+// 繪製藍色矩形
+gdImageFilledRectangle(img, 0, 0, width * 2 / 5, stripe_height * 698 / 100, blue);
+
+// 設定星星相關參數
+int star_spacing_x = (int)(0.129 * height); // 橫向星星之間的間距
+int star_spacing_y = (int)(0.054 * height); // 縱向星星之間的間距
+int star_start_x = (int)(0.125 * height); // 星星的起始X位置
+int star_start_y = (int)(0.06 * height); // 星星的起始Y位置
+
+// 繪製星星
+for (int row = 0; row &lt; 9; row++) {
+int starsPerRow = (row % 2 == 0) ? 6 : 5;
+
+// 計算2、4、6和8排星星的偏移量
+int offset_x = (row % 2 == 0) ? star_spacing_x / -2 : 0;
+
+for (int star = 0; star &lt; starsPerRow; star++) {
+int x = star_start_x + star * star_spacing_x + offset_x;
+
+// 旋轉角度（以弧度為單位）
+double rotation_angle = M_PI / 5; // 忘記多少度的旋轉
+
+int y = star_start_y + row * star_spacing_y;
+draw_star(img, x, y, star_size, white, rotation_angle);
+}
+}
+}
+
+// 繪製星星的函式
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle) {
+gdPoint points[10];
+
+for (int i = 0; i &lt; 10; i++) {
+double angle = M_PI / 2 + i * 2 * M_PI / 10 + rotation_angle;
+int radius = (i % 2 == 0) ? size : size / 2;
+points[i].x = x + radius * cos(angle);
+points[i].y = y + radius * sin(angle);
+}
+
+// 用指定的顏色填充星星
+gdImageFilledPolygon(img, points, 10, color);
+}</pre>
+<p><img alt="" height="184" src="./../images/usa_flag.png" width="350"/><br/><br/></p><br />程式練習-1 程式碼練習 << <a href='程式練習-1 程式碼練習.html'>Previous</a> <a href='w11.html'>Next</a> >> w11</div>
         
     <!-- footer -->
       <div class="container">
