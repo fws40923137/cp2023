@@ -289,9 +289,11 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <p><span>蒐集牛頓第二運動定律、mass-spring-damper 系統、Euler's Method 數值分析相關資料</span></p>
 <p><span>-----------------------------------------------------------------------------------------------------------------</span></p>
 <h2>牛頓第二運動定律</h2>
-<p><img alt="" height="592" src="/images/螢幕擷取畫面 2024-01-09 150009.png" width="584"/></p><h2>mass-spring-damper 系統</h2>
+<p><img alt="" height="592" src="/images/螢幕擷取畫面 2024-01-09 150009.png" width="584"/></p>
+<h2>mass-spring-damper 系統</h2>
 <p></p>
-<p><span><img alt="" height="610" src="/images/螢幕擷取畫面 2024-01-09 150128.png" width="588"/> </span></p><h2>Eulers Method 數值分析</h2>
+<p><span><img alt="" height="610" src="/images/螢幕擷取畫面 2024-01-09 150128.png" width="588"/> </span></p>
+<h2>Eulers Method 數值分析</h2>
 <p><img alt="" height="666" src="/images/螢幕擷取畫面 2024-01-09 145817.png" width="587"/></p>
 <p></p>
 <div>
@@ -299,7 +301,8 @@ doc["threejsblock"].bind("click", threejsblock.do)
 </div>
 <p></p>
 <p></p>
-<p></p><h1>w6-w7</h1>
+<p></p>
+<h1>w6-w7</h1>
 <p>C 程式練習一:</p>
 <p><span>請從 </span><a href="https://www.w3resource.com/c-programming-exercises/">https://www.w3resource.com/c-programming-exercises/</a><span><span> </span>網頁中自選 10 個練習範例, 分別在 Replit, Windows 與 Linux (or macOS) 中執行後, 取下執行畫面放入個人的 Github Pages 網頁 (即帳號.github.io 網站), 以<span> </span><span>ANSIC</span><span> </span>作為頁面標題並詳細說明每一行的程式語法.</span></p>
 <p><span>C 程式練習二:</span></p>
@@ -307,7 +310,8 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <p>1. 在可攜程式環境中以 SciTE + Tiny C Compiler 編譯系統, 使用 Tools - Go 類編譯方式執行.</p>
 <p>2. 在可攜程式環境中以 SciTE + Tiny C Compiler 編譯系統, 使用 Tools - Compile 編譯連結後取得 a.out, 然後在命令列中以 a.out 執行.</p>
 <p>3. 在 Replit 全球資訊網 IDE 環境中的 Shell 頁面, 以 cc ex1.c 產生可執行檔案 a.out, 並以 ./a.out 執行, 或者以 cc ex1.c -o ex1 指定編譯連結後的可執行檔案名稱為 ex1 後, 以 ./ex1 執行.</p>
-<p>最後將所選擇的 C 程式範例執行過程與相關說明內容, 整理在<span>個人 github 帳號下的 cp2023 倉儲網頁</span>中的<span> </span><span>c_ex</span><span> </span>頁面中.</p><h2>程式練習-1 程式碼練習</h2>
+<p>最後將所選擇的 C 程式範例執行過程與相關說明內容, 整理在<span>個人 github 帳號下的 cp2023 倉儲網頁</span>中的<span> </span><span>c_ex</span><span> </span>頁面中.</p>
+<h2>程式練習-1 程式碼練習</h2>
 <p>1- 顯示前十個自然數</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -824,6 +828,225 @@ gdImageFilledRectangle(img, stripe_width, 0, 2 * stripe_width, height, white);
 gdImageFilledRectangle(img, 2 * stripe_width, 0, width, height, red);
 }</pre>
 <p><img alt="" height="286" src="/images/france_flag.png" width="429"/><br/><br/></p>
+<p>5.繪製英國國旗</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+// 函數原型
+void draw_uk_flag(gdImagePtr img);
+void fillTriangle(gdImagePtr img, int x1, int y1, int x2, int y2, int x3, int y3, int color);
+
+int main() {
+// 設定國旗的寬和高
+int width = 1200;
+int height = width / 2;
+
+// 創建圖像
+gdImagePtr img = gdImageCreateTrueColor(width, height);
+gdImageAlphaBlending(img, 0);
+
+// 繪製英國國旗
+draw_uk_flag(img);
+
+// 將圖像保存到文件
+FILE *outputFile = fopen("./../images/uk_flag.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "打開輸出文件時發生錯誤。\n");
+return 1;
+}
+gdImagePngEx(img, outputFile, 9);
+fclose(outputFile);
+gdImageDestroy(img);
+
+return 0;
+}
+
+// 繪製英國國旗的具體實現
+void draw_uk_flag(gdImagePtr img) {
+int width = gdImageSX(img);
+int height = gdImageSY(img);
+
+int red, white, blue;
+red = gdImageColorAllocate(img, 204, 0, 0); // 紅色
+white = gdImageColorAllocate(img, 255, 255, 255); // 白色
+blue = gdImageColorAllocate(img, 0, 0, 153); // 藍色
+
+// 填充整個圖像為藍色背景
+gdImageFilledRectangle(img, 0, 0, width, height, blue);
+
+// 繪製白色斜線和紅色斜線
+{
+int line_thickness = 100;
+gdImageSetThickness(img, line_thickness);
+
+int x1, y1, x2, y2;
+
+// 繪製白色斜線
+x1 = 0;
+y1 = 600;
+x2 = 1200;
+y2 = 0;
+gdImageLine(img, x1, y1, x2, y2, white);
+
+x1 = 0;
+y1 = 0;
+x2 = 1200;
+y2 = 600;
+gdImageLine(img, x1, y1, x2, y2, white);
+}
+{
+int line_thickness = 33;
+gdImageSetThickness(img, line_thickness);
+
+// 繪製紅色斜線
+int x1, y1, x2, y2;
+
+x1 = 566;
+y1 = 300;
+x2 = 1166;
+y2 = 0;
+gdImageLine(img, x1, y1, x2, y2, red);
+
+x1 = 1233;
+y1 = 600;
+x2 = 633;
+y2 = 300;
+gdImageLine(img, x1, y1, x2, y2, red);
+
+x1 = 566;
+y1 = 300;
+x2 = -33;
+y2 = 0;
+gdImageLine(img, x1, y1, x2, y2, red);
+
+x1 = 600;
+y1 = 316.5;
+x2 = 0;
+y2 = 616.5;
+gdImageLine(img, x1, y1, x2, y2, red);
+}
+{
+int line_thickness = 33;
+gdImageSetThickness(img, line_thickness);
+
+int x1, y1, x2, y2, x3, y3;
+
+// 繪製斜線
+x1 = 0;
+y1 = 600;
+x2 = 1200;
+y2 = 0;
+gdImageLine(img, x1, y1, x2, y2, red);
+
+x1 = 1200;
+y1 = 16.5;
+x2 = 600;
+y2 = 316.5;
+gdImageLine(img, x1, y1, x2, y2, white);
+
+x1 = 0;
+y1 = 583.5;
+x2 = 600;
+y2 = 283.5;
+gdImageLine(img, x1, y1, x2, y2, white);
+}
+
+// 繪製白色十字
+int cross_width = width / 32;
+int cross_arm_width = width / 32;
+int center_x = width / 2;
+int center_y = height / 2;
+
+gdImageFilledRectangle(img, center_x + 2.7 * cross_width, 0, center_x - 2.7 * cross_width, height, white);
+gdImageFilledRectangle(img, 0, center_y + 2.7 * cross_arm_width, width, center_y - 2.7 * cross_arm_width, white);
+
+// 繪製紅色十字
+gdImageFilledRectangle(img, center_x + 1.5 * cross_width, 0, center_x - 1.5 * cross_width, height, red);
+gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
+}</pre>
+<p><img alt="" height="227" src="/images/uk_flag.png" width="454"/><br/><br/></p>
+<p></p><h1>w11</h1>
+<div>
+<div class="syntaxhighlighter cpp" id="highlighter_459024">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+// 設定圖像寬度和高度
+int width = 800;
+int height = 600;
+
+// 創建一個TrueColor GD圖像
+gdImagePtr img = gdImageCreateTrueColor(width, height);
+gdImageAlphaBlending(img, 0);
+
+// 打開輸出文件
+FILE *outputFile = fopen("hellogd.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "Error opening the output file.\n");
+return 1;
+}
+
+// 定義顏色
+int red = gdImageColorAllocate(img, 255, 0, 0);
+int blue = gdImageColorAllocate(img, 0, 0, 255);
+int black = gdImageColorAllocate(img, 0, 0, 0);
+int white = gdImageColorAllocate(img, 255, 255, 255);
+
+// 長方形塗色
+gdImageFilledRectangle(img, 0, 0, width, height, white);
+gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
+
+// 橢圓形塗色
+gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
+
+// 橢圓形畫線
+gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
+
+// 畫直線
+gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
+
+// 多邊形畫線
+gdPoint points[4];
+points[0].x = (int)width / 4;
+points[0].y = (int)height * 3 / 4;
+points[1].x = points[0].x + 100;
+points[1].y = points[0].y;
+points[2].x = points[1].x;
+points[2].y = points[1].y + 100;
+points[3].x = points[2].x - 100;
+points[3].y = points[2].y;
+gdImagePolygon(img, points, 4, black);
+
+// 多邊形塗色
+gdPoint points2[4];
+points2[0].x = (int)width / 3;
+points2[0].y = (int)height / 2;
+points2[1].x = points2[0].x + 100;
+points2[1].y = points2[0].y;
+points2[2].x = points2[1].x;
+points2[2].y = points2[1].y + 100;
+points2[3].x = points2[2].x - 150;
+points2[3].y = points2[2].y;
+gdImageFilledPolygon(img, points2, 4, red);
+
+// 將圖像保存為PNG文件
+gdImagePngEx(img, outputFile, 9);
+
+// 關閉文件和釋放內存
+fclose(outputFile);
+gdImageDestroy(img);
+
+return 0;
+}
+</pre>
+<br/><br/>
+<p><img alt="" height="347" src="/images/w12.png" width="463"/></p>
+</div>
+</div>
+<p></p>
 <h1>w12</h1>
 <p>可攜系統中 home_ipv6 目錄中的 .gitconfig</p>
 <div>
