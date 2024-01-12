@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Brython.html'>Brython</a><li><a href='w4-w5.html'>w4-w5</a><li class='has-children'><a href='w6-w7.html'>w6-w7</a><ul class='dropdown'><li><a href='程式練習-1 程式碼練習.html'>程式練習-1 程式碼練習</a><li><a href='程式練習-2 繪製國旗.html'>程式練習-2 繪製國旗</a></li></ul><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='課程心得.html'>課程心得</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Brython.html'>Brython</a><li class='has-children'><a href='w4-w5.html'>w4-w5</a><ul class='dropdown'><li><a href='牛頓第二運動定律.html'>牛頓第二運動定律</a><li><a href='mass-spring-damper 系統.html'>mass-spring-damper 系統</a><li><a href='Eulers Method 數值分析.html'>Eulers Method 數值分析</a></li></ul><li class='has-children'><a href='w6-w7.html'>w6-w7</a><ul class='dropdown'><li><a href='程式練習-1 程式碼練習.html'>程式練習-1 程式碼練習</a><li><a href='程式練習-2 繪製國旗.html'>程式練習-2 繪製國旗</a></li></ul><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a><li><a href='課程心得.html'>課程心得</a></li>
                       </ul>
                 </nav>
               </div>
@@ -162,6 +162,8 @@ return 0;
 }
 
 </pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">前10個自然數是：
+1 2 3 4 5 6 7 8 9 10</pre>
 <p>2- <span>計算前 10 個自然數的和</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -181,6 +183,9 @@ printf("\n總和為 : %d\n", sum); // 打印總和
 // 返回0以表示成功執行
 return 0;
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">前10個自然數是 :
+1 2 3 4 5 6 7 8 9 10
+總和為 : 55</pre>
 <p>3- <span>顯示整數的立方</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -196,6 +201,12 @@ printf("數字是 : %d，%d 的立方是 : %d \n", i, i, (i * i * i)); // 打印
 
 return 0; // 返回0以表示成功執行。
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入項目的數量 : 5
+數字是 : 1，1 的立方是 : 1
+數字是 : 2，2 的立方是 : 8
+數字是 : 3，3 的立方是 : 27
+數字是 : 4，4 的立方是 : 64
+數字是 : 5，5 的立方是 : 125</pre>
 <p>4- <span>讀取任意月份的整數並顯示該月的天數</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -231,6 +242,9 @@ printf("無效的月份編號。\n請重試....\n");
 break;
 }
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入月份編號 : 4
+該月有30天。</pre>
+<p><br/><br/></p>
 <p>5- <span>接受兩個整數並檢查它們是否相等</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -248,6 +262,8 @@ printf("Number1和Number2不相等\n"); // 如果Number1不等於Number2，則�
 }
 
 </pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入Number1和Number2的值 : 10 20
+Number1和Number2不相等</pre>
 <p>6- 檢查給定的數字是偶數還是奇數</p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -265,6 +281,8 @@ printf("%d 是一個偶數\n", num1); // 如果 'rem1' 等於0，則 'num1' 是�
 printf("%d 是一個奇數\n", num1); // 如果 'rem1' 不等於0，則 'num1' 是奇數，打印相應的消息。
 }
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入一個整數 : 15
+15 是一個奇數</pre>
 <p>7- <span>檢查給定的數字是正數還是負數</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -282,7 +300,11 @@ printf("%d 是一個負數 \n", num); // 如果 'num' 小於0，則 'num' 是負
 }
 
 </pre>
-<p><br/>8- <span>將攝氏度轉換為華氏度</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入一個數字 : 7
+7 是一個正數
+
+</pre>
+<p>8- <span>將攝氏度轉換為華氏度</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
 float temp_f; /* 華氏溫度 */
@@ -299,6 +321,7 @@ printf("%f degrees Fahrenheit.\n", temp_f); // 打印以華氏度表示的溫度
 
 return 0; // 返回0以表示程序成功執行。
 }</pre>
+<p>輸入溫度（攝氏度）: 20<br/>輸出溫度(華氏度): 68.000000 </p>
 <p>9- <span>將公里每小時轉換為英哩每小時</span><br/><br/></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -317,6 +340,8 @@ printf("%f 英里每小時\n", miph); // 以每小時英里數的形式打印結
 
 return 0; // 返回0以表示程序成功執行。
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入每小時公里數: 100
+62.137115 英里每小時</pre>
 <p>10- 輸入<span>小時和分鐘數，計算總分鐘數</span></p>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt; // 包含標準輸入/輸出頭文件。
 
@@ -343,6 +368,10 @@ printf("總共: %d 分鐘。\n", tot_mins); // 打印總分鐘數。
 
 return 0; // 返回0以表示程序成功執行。
 }</pre>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">輸入小時: 2
+輸入分鐘: 30
+總共: 150 分鐘。</pre>
+<p><br/><br/></p>
 <p><br/><br/></p>
 <p></p>
 <p></p>
